@@ -112,7 +112,9 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
-
+let body = document.querySelector('body');
+body.style.background = 'black'
+body.style.color="white"
 let articlePanel = document.querySelector('.articles');
 
 data.forEach(item => {
@@ -124,13 +126,15 @@ function articleCreator(title, date, firstP, secondP, thirdP) {
   // Main Div Container
   const articleDiv = document.createElement('div');
   articleDiv.classList.add('article');
-
+  articleDiv.style.background = "gray"
+  articleDiv.style.transition = "height 1s" // added a transition 
   // Title
   const articleTitle = document.createElement('h2');
 
   // Date
   const articleDate = document.createElement('p');
   articleDate.classList.add('date');
+ 
 
   // P Tags
   const firstPara = document.createElement('p');

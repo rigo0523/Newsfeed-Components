@@ -42,6 +42,8 @@ function menuCreator(array) {
   menu.classList.add('menu');
   menu.style.background = "skyblue"
  
+
+ 
   // menu ul
   const ulMenu = document.createElement('ul');
   menu.classList.add('ulMenu');
@@ -63,6 +65,7 @@ function menuCreator(array) {
  
 
  const menuBtn = document.querySelector('.menu-button');
+
 
  menuBtn.addEventListener('click', (event) => {
    menu.classList.toggle('menu--open');
