@@ -112,3 +112,59 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+let articlePanel = document.querySelector('.articles');
+
+data.forEach(item => {
+  articlePanel.appendChild(articleCreator(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph))
+})
+
+function articleCreator(title, date, firstP, secondP, thirdP) {
+  
+  // Main Div Container
+  const articleDiv = document.createElement('div');
+  articleDiv.classList.add('article');
+
+  // Title
+  const articleTitle = document.createElement('h2');
+
+  // Date
+  const articleDate = document.createElement('p');
+  articleDate.classList.add('date');
+
+  // P Tags
+  const firstPara = document.createElement('p');
+  const secondPara = document.createElement('p');
+  const thirdPara = document.createElement('p');
+  
+  // Button
+  const expandBtn = document.createElement('span');
+  expandBtn.classList.add('expandButton');
+
+  
+  // Appended Child Elements
+  articleDiv.appendChild(articleTitle);
+  articleDiv.appendChild(articleDate);
+  articleDiv.appendChild(firstPara);
+  articleDiv.appendChild(secondPara);
+  articleDiv.appendChild(thirdPara);
+  articleDiv.appendChild(expandBtn);
+
+
+  // Text Content
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  firstPara.textContent = firstP;
+  secondPara.textContent = secondP;
+  thirdPara.textContent = thirdP;
+  expandBtn.textContent = 'Toggle Tab';
+
+  // Expand Button 
+  expandBtn.classList.add('expandButton');
+
+  expandBtn.addEventListener('click', (event) => articleDiv.classList.toggle('article-open'));
+
+
+
+  return articleDiv;
+}
