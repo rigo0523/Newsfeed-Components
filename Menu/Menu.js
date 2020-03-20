@@ -35,6 +35,7 @@ let menuItems = [
 */
 const menuButton = document.querySelector('.header');
 
+
 function menuCreator(array) {
   //Main menu div
   const menu = document.createElement('div');
@@ -45,14 +46,16 @@ function menuCreator(array) {
   const ulMenu = document.createElement('ul');
   menu.classList.add('ulMenu');
   console.log(ulMenu)
+  ulMenu.style.background = "gray";
+  ulMenu.style.margin = "0"
   
-
+ // forEachLoop
  menuItems.forEach(item => {
    const listItems = document.createElement('li');
-
    listItems.textContent = item;
-
    ulMenu.appendChild(listItems)
+   ulMenu.style.border = "10px solid green"
+   ulMenu.style.margin = "10px"
  }); //end of forEACH loop
 
  menu.appendChild(ulMenu)
