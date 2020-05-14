@@ -112,3 +112,66 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+function articleCreator(dataSet) {
+  
+  // Main Div Container
+  const articleDiv = document.createElement('div');
+  articleDiv.classList.add('article');
+  articleDiv.style.background = "gray"
+  articleDiv.style.transition = "height 1s" 
+  // added a transition 
+  // Title
+  const articleTitle = document.createElement('h2');
+
+  // Date
+  const articleDate = document.createElement('p');
+  articleDate.classList.add('date');
+ 
+
+  // P Tags
+  const firstPara = document.createElement('p');
+  const secondPara = document.createElement('p');
+  const thirdPara = document.createElement('p');
+  
+  // Expand Button
+  const expandBtn = document.createElement('span');
+  expandBtn.classList.add('expandButton');
+  expandBtn.style.background = "orange"
+
+  
+  // Appended Child Elements
+  articleDiv.appendChild(articleTitle);
+  articleDiv.appendChild(articleDate);
+  articleDiv.appendChild(firstPara);
+  articleDiv.appendChild(secondPara);
+  articleDiv.appendChild(thirdPara);
+  articleDiv.appendChild(expandBtn);
+
+
+  // Text Content
+  articleTitle.textContent = dataSet.title;
+  articleDate.textContent = dataSet.date;
+  firstPara.textContent = dataSet.firstParagraph;
+  secondPara.textContent = dataSet.secondParagraph;
+  thirdPara.textContent = dataSet.thirdParagraph;
+  expandBtn.textContent = 'Toggle Tab';
+
+  // Expand article Button 
+  expandBtn.addEventListener('click', (event) => {
+   articleDiv.classList.toggle('article-open');
+  });
+
+  return articleDiv;
+}
+
+//body content styles
+let body = document.querySelector('body');
+body.style.background = 'black'
+body.style.color="white"
+
+//append data to the Articles section
+let articlePanel = document.querySelector('.articles');
+
+data.forEach(data => {
+  articlePanel.appendChild(articleCreator(data))
+})

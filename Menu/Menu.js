@@ -33,3 +33,41 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+function menuCreator(data) {
+  //Main menu div
+  const menu = document.createElement('div');
+  menu.classList.add('menu');
+  menu.style.background = "skyblue"
+  menu.style.transition = "width 3s" // transition does not work
+
+
+  // menu ul
+  const ulMenu = document.createElement('ul');
+  menu.appendChild(ulMenu)
+
+
+ // forEachLoop for LIST ITEMS
+ data.forEach(item => {
+   const listItems = document.createElement('li');
+  ulMenu.appendChild(listItems)
+   listItems.textContent = item;
+ }); 
+
+ //MENU BUTTON
+ let menuBtn = document.querySelector('.menu-button');
+ menuBtn.style.background = "orange"
+
+ menuBtn.addEventListener('click', (event) => {
+   event.target.style.background = 'green'
+   menu.classList.toggle('menu--open')
+
+   menu.style.webkitTransition='3s' // transition does not WORK, WHY? 
+   menu.style.transition = '3s'
+ })
+   
+
+ return menu;
+}
+
+const menuHeader = document.querySelector('.header');
+menuHeader.appendChild(menuCreator(menuItems))
